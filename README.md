@@ -4,6 +4,13 @@ An unofficial trial reimplementation of the paper "MT-GCN FOR MULTI-LABEL AUDIO 
 
 The main code is based on this [implementation](https://github.com/qiuqiangkong/dcase2019_task2). Using the baseline model as the backbone and adds multi-task learning (see `main_mtl.py`, `models_mtl.py`) and GCN (in model `Cnn_9layers_AvgPooling_GCNEmb`) on top of it. The graph (`input/audioset_all_direct.pkl`) is represented as the setting of MT-GCN_4.
 
+To reproduce the backbone: `sh runme.sh`
+
+To reproduce the backbone equipped with Multi-task learning: `sh runme_mtl.sh`
+
+To reproduce MT-GCN_4: `sh runme_gcn_mtl.sh`
+
+
 Below is the original readme in https://github.com/qiuqiangkong/dcase2019_task2 .
 
 # DCASE2019 Task2 Audio tagging with noisy labels and minimal supervision
