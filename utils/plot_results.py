@@ -9,9 +9,9 @@ import numpy as np
 
 import config
 
-MTL_PATH = "/home/zhiling/py3_workspace/freesound-audio-tagging-2019/dcase2019_task2/work/statistics/main_mtl/logmel_64frames_64melbins/train_source=curated_and_noisy/segment=5.0s,hop=2.0s,pad_type=repeat/holdout_fold=1"
+MTL_PATH = "./work/statistics/main_mtl/logmel_64frames_64melbins/train_source=curated_and_noisy/segment=5.0s,hop=2.0s,pad_type=repeat/holdout_fold=1"
 
-ORG_PATH = "/home/zhiling/py3_workspace/freesound-audio-tagging-2019/dcase2019_task2/work/statistics/main/logmel_64frames_64melbins/train_source=curated_and_noisy/segment=5.0s,hop=2.0s,pad_type=repeat/holdout_fold=1"
+ORG_PATH = "./work/statistics/main/logmel_64frames_64melbins/train_source=curated_and_noisy/segment=5.0s,hop=2.0s,pad_type=repeat/holdout_fold=1"
 
 def plot_results(args):
 
@@ -88,8 +88,6 @@ def plot_results(args):
         # for model_type in ['Cnn_5layers_AvgPooling', 'Cnn_9layers_AvgPooling', 'Cnn_9layers_MaxPooling', 'Cnn_13layers_AvgPooling']:
         path0 = MTL_PATH if args.mtl else ORG_PATH
         for model_type in os.listdir(path0):
-            if "GCNEmb" in model_type:
-                continue
             try:
                 results, idx = _load_stat(model_type, target_source=target_source, idx=model_best_curated_idx.get(model_type, None))
                 model_best_curated_idx[model_type] = idx
